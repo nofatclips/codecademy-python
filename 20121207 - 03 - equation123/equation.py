@@ -1,10 +1,3 @@
-The password is the combinations of the digits I get when I run
-the function with (pi, e, phi) as arguments:
-
-print fx (3.1416,2.7183,1.618)
-
-Remove any non digit character and you should get 15 digits
-
 # Find the coefficients (a,b,c) in
 #
 # y(x) = a * x^2 + b * x + c
