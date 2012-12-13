@@ -27,7 +27,7 @@ class RootBeer(object):
         return self
     
     def secondLine(self):
-		next = self.nextVerse()
+        next = self.nextVerse()
         print "%s, %s." % (self.oneLess(), next.onTheWall())
         return next
 
