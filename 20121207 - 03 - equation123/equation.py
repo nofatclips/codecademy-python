@@ -29,9 +29,10 @@ def fx(f1, f2, f3):
     a = 0.5 * (f1 + f3) - f2
     b = f3 - f2 - 5*a
     c = f1 - a - b
-    sign1 = "" if b<0 else "+"
-    sign2 = "" if c<0 else "+"
-    return "%g * x**2 %s%g * x %s%g" % (a,sign1,b,sign2,c)
+    #sign1 = "" if b<0 else "+"
+    #sign2 = "" if c<0 else "+"
+    #return "%g * x**2 %s%g * x %s%g" % (a,sign1,b,sign2,c)
+    return "%g * x**2 %+g * x %+g" % (a,b,c)
 
 def test (equation, f1, f2, f3):
     for x,f in [(1,f1),(2,f2),(3,f3)]:
