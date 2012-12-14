@@ -35,12 +35,18 @@ class Nope:
     def write(n):
         return n
 
-def play (n):
-    criteria = [FizzBuzz(), Fizz(), Buzz(), Nope]
-    for num in range (1,n+1):
-        for criterion in criteria:
-            if criterion.check(num):
-                print criterion.write(num)
-                break
+class Game:
+    
+    def __init__(self,n):
+        self.n=n
 
-play(20)
+    def __iter__(self):
+        criteria = [FizzBuzz(), Fizz(), Buzz(), Nope]
+        lastNum=self.n+1
+        for num in range (1,lastNum):
+            for criterion in criteria:
+                if criterion.check(num):
+                    yield criterion.write(num)
+                    break
+
+for turn in Game(50): print turn
