@@ -5,16 +5,16 @@ class Verse(object):
     def __init__(self, song, n):
         self.song = song
         self.bottles = n
-    	self._next = None
+        self._next = None
     
     def parameters(self):
         return {
-			"num": self.bottles, 
-			"drink": self.song.drink,
-			"type": self.song.drink.type
+            "num": self.bottles, 
+        	"drink": self.song.drink,
+			"type": self.song.drink.category
 		}
     
-    def nextVerse(self):
+    def subsequentVerse(self):
         if self._next: return self._next
         self._next = self.song.verse(self.bottles-1)
         return self._next
@@ -35,8 +35,8 @@ class Verse(object):
         #return self
     
     def secondLine(self):
-        next = self.nextVerse()
-        return "%s, %s." % (self.oneLess(), next.onTheWall())
+        return "%s, %s." % \
+            (self.oneLess(), self.song.nextVerse.onTheWall())
         #return next
 	
     def __str__(self):
@@ -72,14 +72,14 @@ class OneBeerAltVerse(OneBeerVerse):
         return "If that one bottle should happen to fall, " \
 			+ "what a waste of %(type)s!" % self.parameters()
 	
-    def nextVerse(self):
+    def subsequentVerse(self):
         return None
 
 class NoBeersVerse(Verse):
     def __init__(self, song):
         super(NoBeersVerse, self).__init__(song, 0)
 
-    def nextVerse(self):
+    def subsequentVerse(self):
         if self._next: return self._next
         self._next = self.song.firstVerse()
         return self._next
@@ -97,9 +97,9 @@ class NoBeersVerse(Verse):
 
 class Drink(object):
 	
-	def __init__(self, name, type=None):
-		self.name=name
-		self.type=type if type else name
+	def __init__(self, name, category=None):
+		self.name = name
+		self.category = category if category else name
 
 	def __str__(self):
 		return self.name
@@ -116,24 +116,32 @@ class Milk(Drink):
 		
 class Song(object):
 
-    def __init__(self, maxBottles = 99, drink="rootbeer"):
+    def __init__(self, maxBottles = 99, drink=RootBeer()):
         self.maxBottles = maxBottles
         self.drink = drink
         self.currentVerse = None
+        self.nextVerse = None
     
     def __iter__(self):
         self.currentVerse = self.firstVerse()
         while (self.currentVerse):
+            self.nextVerse = self.findNextVerse()
             yield self.currentVerse
-            self.currentVerse = self.currentVerse.nextVerse()
+            if self.isLast(): break
+            self.currentVerse = self.nextVerse
+    
+    def isLast(self):
+        return self.currentVerse.bottles==0
+
+    def findNextVerse(self):
+        return self.currentVerse.subsequentVerse()
 
     def verse(self, n):
-        alt = choice([True, False])
         if n==1:
-            return OneBeerAltVerse(self) if alt else OneBeerVerse(self)
+            return OneBeerVerse(self)
         if n==0: 
             return NoBeersVerse(self)
-        return AltVerse(self, n) if alt else Verse(self, n)
+        return Verse(self, n)
     
     def firstVerse(self):
         return self.verse(self.maxBottles)
@@ -142,4 +150,36 @@ class Song(object):
         for verse in self:
             print verse
 
-Song(99,RootBeer()).sing()
+class AltSong(Song):
+    
+    def __init__(self, maxBottles, drink):
+		super(AltSong, self).__init__(maxBottles, drink)
+
+    def altVerse(self, n):
+        if n==1:
+            return OneBeerAltVerse(self)
+        if n==0: 
+            return NoBeersVerse(self)
+        return AltVerse(self, n)
+
+    def verse(self,n):
+        if choice([True, False]):
+            return self.altVerse(n)
+        return super(AltSong, self).verse(n)
+    
+    def isLast(self):
+        return False
+
+class CollatzSong(AltSong):
+    
+    def __init__(self, startBottles, drink):
+    	super(CollatzSong, self).__init__(startBottles, drink)
+
+    def findNextVerse(self):
+        n = self.currentVerse.bottles
+        if n<2:
+            return super(CollatzSong, self).findNextVerse()
+        nextCollatz = (3*n+1) if n%2 else (n/2)
+        return self.verse(nextCollatz)
+
+CollatzSong(8,RootBeer()).sing()
