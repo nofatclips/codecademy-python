@@ -1,15 +1,23 @@
 from random import choice
 
-class RootBeer(object):
+class Verse(object):
     
-    def __init__(self, n):
+    def __init__(self, song, n):
+        self.song = song
         self.bottles = n
+    	self._next = None
     
     def parameters(self):
-        return {"num": self.bottles, "drink": Song.drink}
+        return {
+			"num": self.bottles, 
+			"drink": self.song.drink,
+			"type": self.song.drink.type
+		}
     
     def nextVerse(self):
-        return Song.verse(self.bottles-1)
+        if self._next: return self._next
+        self._next = self.song.verse(self.bottles-1)
+        return self._next
     
     def onTheWall(self):
         return "%(num)i bottles of %(drink)s on the wall" % \
@@ -23,26 +31,29 @@ class RootBeer(object):
         return "Take one down, pass it around"
             
     def firstLine(self):
-        print "%s, %s." % (self.onTheWall(), self.bottlesOfBeer())
-        return self
+        return "%s, %s." % (self.onTheWall(), self.bottlesOfBeer())
+        #return self
     
     def secondLine(self):
         next = self.nextVerse()
-        print "%s, %s." % (self.oneLess(), next.onTheWall())
-        return next
+        return "%s, %s." % (self.oneLess(), next.onTheWall())
+        #return next
+	
+    def __str__(self):
+        return "%s\n%s" % (self.firstLine(), self.secondLine())		
 
-class RootBeerAlt(RootBeer):
+class AltVerse(Verse):
 
-    def __init__(self,n):
-        super(RootBeerAlt, self).__init__(n)
+    def __init__(self, song, n):
+        super(AltVerse, self).__init__(song, n)
 
     def oneLess(self):
         return "If one of those bottles should happen to fall"
         
-class OneBeer(RootBeer):
+class OneBeerVerse(Verse):
 
-    def __init__(self):
-        super(OneBeer, self).__init__(1)
+    def __init__(self, song):
+        super(OneBeerVerse, self).__init__(song, 1)
 
     def onTheWall(self):
         return "One bottle of %(drink)s on the wall" % \
@@ -52,22 +63,26 @@ class OneBeer(RootBeer):
         return "One bottle of %(drink)s" % \
             self.parameters()
 
-class OneBeerAlt(OneBeer):
+class OneBeerAltVerse(OneBeerVerse):
 
-    def __init__(self):
-        super(OneBeerAlt, self).__init__()
+    def __init__(self, song):
+        super(OneBeerAltVerse, self).__init__(song)
 
     def secondLine(self):
-        print "If that one bottle should happen to fall,",
-        print "what a waste of alcohol!"
+        return "If that one bottle should happen to fall, " \
+			+ "what a waste of %(type)s!" % self.parameters()
+	
+    def nextVerse(self):
         return None
 
-class NoBeers(RootBeer):
-    def __init__(self):
-        super(NoBeers, self).__init__(0)
+class NoBeersVerse(Verse):
+    def __init__(self, song):
+        super(NoBeersVerse, self).__init__(song, 0)
 
     def nextVerse(self):
-        return Song.firstVerse()
+        if self._next: return self._next
+        self._next = self.song.firstVerse()
+        return self._next
 
     def onTheWall(self):
         return "No more bottles of %(drink)s on the wall" % \
@@ -80,24 +95,51 @@ class NoBeers(RootBeer):
         return "No more bottles of %(drink)s" % \
             self.parameters()
 
-class Song:
+class Drink(object):
+	
+	def __init__(self, name, type=None):
+		self.name=name
+		self.type=type if type else name
 
-    maxBottles = 99
-    drink = "rootbeer"
+	def __str__(self):
+		return self.name
+
+class RootBeer(Drink):
+
+	def __init__(self):
+		super(RootBeer, self).__init__("rootbeer", "alcohol")
+
+class Milk(Drink):
+
+	def __init__(self):
+		super(Milk, self).__init__("milk")
+		
+class Song(object):
+
+    def __init__(self, maxBottles = 99, drink="rootbeer"):
+        self.maxBottles = maxBottles
+        self.drink = drink
+        self.currentVerse = None
     
-    @staticmethod
-    def verse(n):
+    def __iter__(self):
+        self.currentVerse = self.firstVerse()
+        while (self.currentVerse):
+            yield self.currentVerse
+            self.currentVerse = self.currentVerse.nextVerse()
+
+    def verse(self, n):
         alt = choice([True, False])
         if n==1:
-            return OneBeerAlt() if alt else OneBeer()
+            return OneBeerAltVerse(self) if alt else OneBeerVerse(self)
         if n==0: 
-            return NoBeers()
-        return RootBeerAlt(n) if alt else RootBeer(n)
+            return NoBeersVerse(self)
+        return AltVerse(self, n) if alt else Verse(self, n)
     
-    @staticmethod
-    def firstVerse():
-        return Song.verse(Song.maxBottles)
+    def firstVerse(self):
+        return self.verse(self.maxBottles)
+    
+    def sing(self):
+        for verse in self:
+            print verse
 
-nextVerse = Song.firstVerse()
-while (nextVerse):
-    nextVerse = nextVerse.firstLine().secondLine()
+Song(99,RootBeer()).sing()
