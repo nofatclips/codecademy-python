@@ -10,8 +10,8 @@ class Verse(object):
     def parameters(self):
         return {
             "num": self.bottles, 
-        	"drink": self.song.drink,
-			"type": self.song.drink.category
+            "drink": self.song.drink,
+	        "type": self.song.drink.category
 		}
     
     def subsequentVerse(self):
@@ -96,24 +96,24 @@ class NoBeersVerse(Verse):
             self.parameters()
 
 class Drink(object):
-	
-	def __init__(self, name, category=None):
-		self.name = name
-		self.category = category if category else name
-
-	def __str__(self):
-		return self.name
+    
+    def __init__(self, name, category=None):
+        self.name = name
+        self.category = category if category else name
+    
+    def __str__(self):
+        return self.name
 
 class RootBeer(Drink):
-
-	def __init__(self):
-		super(RootBeer, self).__init__("rootbeer", "alcohol")
+    
+    def __init__(self):
+        super(RootBeer, self).__init__("rootbeer", "alcohol")
 
 class Milk(Drink):
+    
+    def __init__(self):
+        super(Milk, self).__init__("milk")
 
-	def __init__(self):
-		super(Milk, self).__init__("milk")
-		
 class Song(object):
 
     def __init__(self, maxBottles = 99, drink=RootBeer()):
