@@ -7,8 +7,9 @@ class FifoSet:
         self._queue = deque()
 
     def push (self, value):
-        self._set.add(value)
-        self._queue.append(value)
+        if value:
+            self._set.add(value)
+            self._queue.append(value)
 
     def pop (self):
         return self._queue.popleft()
@@ -30,12 +31,11 @@ class SubstringGenerator:
         
         while substrings:
             string = substrings.pop()
-            l, previousL = len(string),l
+            l, previousL = len(string), l
             lWord, rWord = string[:-1], string[1:]
-            if l!=previousL and lWord:
+            if l!=previousL:
                 substrings.push(lWord)
-            if rWord:
-                substrings.push(rWord)
+            substrings.push(rWord)
 
         return substrings()
 
@@ -44,5 +44,5 @@ class SubstringGenerator:
     def __iter__ (self): return iter(self._subList)
 
 subs = SubstringGenerator("abbaz")
-print (*subs, sep='\n') #Enumerate subs
+print (*subs, sep='\n')
 print ("Count: %i" % len(subs))
