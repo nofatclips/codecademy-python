@@ -24,11 +24,18 @@ class SubstringGenerator:
                 theList.add(rWord)
                 strings.append(rWord)            
 
+    # Delegate protocols to the subList object
+
     def __str__(self): # Invoked when you call str()
         return str(self._subList)
 
     def __len__ (self): # Invoked when you call len()
         return len(self._subList)
 
+    def __iter__ (self): # Invoked on enumeration
+        return iter(self._subList)
+
 subs = SubstringGenerator("abbaz")
-print ("Substrings: %s\nCount: %i" % (subs, len(subs)))
+print (*subs, sep='\n') #Enumerate subs
+print ("Count: %i" % len(subs))
+
