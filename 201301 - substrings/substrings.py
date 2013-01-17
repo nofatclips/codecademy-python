@@ -43,6 +43,16 @@ class SubstringGenerator:
     def __len__ (self): return len(self._subList)
     def __iter__ (self): return iter(self._subList)
 
-subs = SubstringGenerator("abbaz")
+class PrettySubstringGenerator (SubstringGenerator):
+
+    def __iter__ (self):
+        yield self.word
+        for sub in self._subList:
+            if sub!=self.word: yield self.spacify (sub)
+
+    def spacify (self, sub):
+        return " " * self.word.find(sub) + sub
+
+subs = PrettySubstringGenerator("abracadabra")
 print (*subs, sep='\n')
 print ("Count: %i" % len(subs))
