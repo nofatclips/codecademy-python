@@ -128,6 +128,8 @@ class Triangle:
         '''a, b and c are the sides of the triangle
         alpha is the angle opposite to a, beta opposite to b, gamma to c'''
         t = Triangle(a,b,c,alpha,beta,gamma,name)
+        if not t.checkSides():
+            raise ValueError ("Triangle Inequality not satisfied by given sides.");
         if not t.checkAngles():
             raise ValueError ("Internal angles does not sum up to 180 degrees.")    
         if not t.checkAnglesAndSides():
