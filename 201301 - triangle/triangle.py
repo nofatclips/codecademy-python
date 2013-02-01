@@ -62,8 +62,6 @@ class Triangle:
     def heightBaseC (self):
         return self.__height__(self.c)
 
-    # Non instance methods
-
     def checkAngles (self):
         _180 = self.alpha + self.beta + self.gamma
         return 179.9<_180<180.1
