@@ -22,7 +22,7 @@ literal `{}` which will always evaluate to a dictionary.
 As an alternative you can use the constructor method:
 
     empty = set()
-    fibo = set(1, 1, 2, 3, 5)
+    fibo = set([1, 1, 2, 3, 5])
 
 The constructor accepts any kind of iterable object: you can pass a list, for example, and the resulting set
 will have all the elements in the original list but with duplicates removed.
@@ -84,7 +84,12 @@ almost impossible that two persons have the same fiscal code.
 
 And that's exactly what a hash value is, a "digest" of the object that can be used to identify it and
 distinguish it from the others without the need to verify that each part of object X is equal (or not) to
-each part of object Y: you only compare the two hash values. This property allows us, as we saw in
+each part of object Y: you only compare the two hash values.
+
+    > "Guido von Rossum".__hash__()
+    => 1036986244
+
+This property allows us, as we saw in
 [Week 14](http://www.codecademy.com/groups/python-fro-beginners/discussions/513db1703a03bbfc0b0006f2),
 to implement very (very very very) fast search algorithms.
 
@@ -123,6 +128,16 @@ and the compound operator `|=` can be used in a similar fashion to `+=` for an e
 
     > fable |= paradox
     => set(['Achilles', 'hare', 'tortoise'])
+    
+When the element to add are in an iterable that is not a set, i.e. a list, we can use the update method:
+
+     > menu = {"spam", "spam egg sausage and spam", "egg bacon and spam"}
+     > menulist = ["spam", "lovely spam", "lovely spam"]
+     > menu.update(menulist)
+     > menu
+     => set(['lovely spam', 'spam egg sausage and spam', 'egg bacon and spam', 'spam'])
+
+And that's more than enough about sets. Stay tuned for our weekly challenge.
 
 P.S. Some technicalities. What I described refers to Python 2.7.x as well as Python 3.x.x
 
