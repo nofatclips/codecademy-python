@@ -137,7 +137,8 @@ When the element to add are in an iterable that is not a set, i.e. a list, we ca
      > menu
      => set(['lovely spam', 'spam egg sausage and spam', 'egg bacon and spam', 'spam'])
 
-And that's more than enough about sets. Stay tuned for our weekly challenge.
+And that's [more than enough](http://www.youtube.com/watch?v=anwy2MPT5RE) about sets.
+Stay tuned for our weekly challenge.
 
 P.S. Some technicalities. What I described refers to Python 2.7.x as well as Python 3.x.x
 
