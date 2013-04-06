@@ -101,8 +101,8 @@ objects) I'd expect that I won't be able to add a set inside another set:
       File "<stdin>", line 1, in <module>
     TypeError: unhashable type: 'set'
     
-and this is a mojor difference with mathematical sets. (Don't despair! For the math nerds before you, Python
-provides the `frozenset` constructor to create immutable sets!)
+and this is a mojor difference with mathematical sets. (Don't despair! For the math nerds amongst you, Python
+provides the `frozenset()` constructor to create immutable sets!)
 
 But... what if I actually wanted was to just add all the elements from one set into another? Well,
 that's what the `union` was for:
