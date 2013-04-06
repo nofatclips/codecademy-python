@@ -111,7 +111,7 @@ and in fact, being so common, Python defines the `|` operator as a shortcut:
     > fable = fable | paradox
     => set(['Achilles', 'hare', 'tortoise'])
 
-and the compound operator `|=` can be used in a similar fashion to `+=` to get a shorter shortcut:
+and the compound operator `|=` can be used in a similar fashion to `+=` for an even shorter notation:
 
     > fable |= paradox
     => set(['Achilles', 'hare', 'tortoise'])
