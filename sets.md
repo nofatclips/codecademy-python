@@ -65,7 +65,7 @@ and iterate over them:
 
     > for name in standings: print name
     
-Also, set operations (subset, superset, union, intersection and difference), but the `union` is the one that
+Also, set operations (subset, superset, union, intersection and difference) are defined, but the `union` is the one that
 you'll use more often. More about it later.
 
 Now, what does hashable mean? Well, an object is hashable if Python knows how to evaluate an hash value for it.
