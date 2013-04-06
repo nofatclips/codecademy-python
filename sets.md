@@ -68,7 +68,7 @@ and iterate over them:
 Also, set operations (subset, superset, union, intersection and difference) are defined, but the `union` is the one that
 you'll use more often. More about it later.
 
-Now, what does hashable mean? Well, an object is hashable if Python knows how to evaluate an hash value for it.
+Now, what does hashable mean? Well, an object is hashable if Python knows how to evaluate a _hash value_ for it.
 Let me take the panoramic route here...
 
 In Italy, the equivalent of the SSN is called "fiscal code": rather than
