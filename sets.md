@@ -16,8 +16,12 @@ not possible with sets: you can only have one copy. Let's try and define a set i
     => set([1, 2, 3, 5])
     
 The `{}` is the literal notation for sets. As you might remember from last week, it's also the notation for
-dictionaries, but Python is smart enough to distinguish between the two. Or you can use the constructor method:
+dictionaries, but Python is smart enough to distinguish between the two. An exception here is the empty
+literal `{}` which will always evaluate to a dictionary.
 
+As an alternative you can use the constructor method:
+
+    empty = set()
     fibo = set(1, 1, 2, 3, 5)
 
 The constructor accepts any kind of iterable object: you can pass a list, for example, and the resulting set
@@ -125,7 +129,13 @@ P.S. Some technicalities. What I described refers to Python 2.7.x as well as Pyt
 The set was first introduced in Python 2.3 as a library (you had to `import sets`, plural, in order
 to be able to use it in your programs). In Python 2.6 `sets` was replaced by `set` , a built-in type, that is
 part of the Python language (while the old library has been deprecated). Only with Python 2.7 the `{}` notation
-has been introduced (so, you won't be able to use it in some online IDEs that are still stuck to older versions of
-Python, and you may even have to `import sets` if the version is <2.6).
+has been introduced.
 
-For Python 3 users, same as Python 2.7 except that obviously `sets` has been removed.
+So, you won't be able to use the curly brackets literal in some online IDEs that are still stuck to older versions of
+Python, and you may even have to `import sets` if the version is Python 2.5 or earlier. To check which version of
+Python is running, use:
+
+    import sys
+    print sys.version
+
+For Python 3 users, same as Python 2.7 applies except that obviously the old `sets` has been removed for good.
