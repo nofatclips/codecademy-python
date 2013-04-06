@@ -88,7 +88,7 @@ Rossum**, it would be:
     VNR GDU 56A31 BDFLF
     
 (where I made the part about the birth place up since the codes are only defined for italian cities.)
-Now, it's obvious that if we have two differents fiscal codes, they belong to two different persons. Also, it's
+Now, it's obvious that if we have two different fiscal codes, they must belong to two different persons. Also, it's
 almost impossible that two persons have the same fiscal code.
 
 And that's exactly what a **hash value** is, a "digest" of the object that can be used to identify it and
