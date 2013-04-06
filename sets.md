@@ -1,4 +1,4 @@
-Week 18 Review: The Set
+Week 18 Review: The Set and Immutability
 ====================
 
 Today we're going to talk about `set`s, a data structure that I mistakenly covered in
@@ -20,8 +20,11 @@ dictionaries, but Python is smart enough to distinguish between the two. Or you 
 
     fibo = set(1, 1, 2, 3, 5)
 
-We tried to store the first 5 elements in the fibonacci sequence, but we only got four: we only got one instance
-of the number `1`. But let's go by the manual.
+The constructor accepts any kind of iterable object: you can pass a list, for example, and the resulting set
+will have all the elements in the original list but with duplicates removed.
+
+In the `fibo` example, we tried to store the first 5 elements in the fibonacci sequence, but we only got
+four: that's because Python only stored one instance of the number `1`. But let's go by the manual.
 
 The [manual](http://docs.python.org/2/library/stdtypes.html#set) says that a **set** is an
 _unordered_ _collection_ of _distinct_ _hashable_ objects. Let's break this down.
@@ -31,13 +34,30 @@ the [list](http://www.codecademy.com/groups/python-fro-beginners/discussions/50b
 the [dictionary](http://www.codecademy.com/groups/python-fro-beginners/discussions/5159a72318e52a0dd9001a6a). What
 these structures have in common is the fact that they store multiple values.
 
-One difference between lists and dictionaries is that lists have a defined order, while dictionaries don't. As
-you might have guessed, sets are also unordered collections:
+What about unordered? One difference between lists and dictionaries is that lists are sequence of values with a
+defined order, while dictionaries don't. As you might have guessed, sets are also unordered collections:
 
-    > standings = {"Achilles", "turtle"}
+    > standings = {"Achilles", "tortoise"}
     > print standings
-    => set(['turtle', 'Achilles'])
+    => set(['tortoise', 'Achilles'])
 
+We already saw what distinct means with the fibonacci sequence. We'll get back to the hashable part soon. Let's first
+see what we can do with a set.
+
+We can add elements to it:
+
+    > standings.add("turtle")
+    
+remove them:
+
+    > standings.remove("tortoise")
+    
+check for existence:
+
+    > print "Achilles" in standings
+    > print "Zeno" not in standings
+    
+Also, set operations (union, intersection and difference) are defined but you'll rarely get to use them.
 
 P.S. Some technicalities. What I described refers to Python 2.7.x as well as Python 3.x.x
 
