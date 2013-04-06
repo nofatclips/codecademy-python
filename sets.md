@@ -41,7 +41,7 @@ defined order, while dictionaries don't. As you might have guessed, sets are als
     > print standings
     => set(['tortoise', 'Achilles'])
 
-We already saw what distinct means with the fibonacci sequence. We'll get back to the hashable part soon. Let's first
+We already saw what distinct means with the Fibonacci sequence. We'll get back to the hashable part soon. Let's first
 see what we can do with a set.
 
 We can add elements to it:
@@ -57,7 +57,64 @@ check for existence:
     > print "Achilles" in standings
     > print "Zeno" not in standings
     
-Also, set operations (union, intersection and difference) are defined but you'll rarely get to use them.
+and iterate over them:
+
+    > for name in standings: print name
+    
+Also, set operations (subset, superset, union, intersection and difference), but the `union` is the one that
+you'll use more often.
+
+Now, what does hashable mean? Well, an object is hashable if Python knows how to evaluate an hash value for it.
+Let me take the panoramic route here...
+
+In Italy, the equivalent of the SSN is called "fiscal code": rather than
+being just a number, it is comprised of three letters from your first name (consonants first, then vowels), three
+from your last name, a sequence based on your birth date, a code corresponding to your birth place. For Guido von
+Rossum, it would be:
+
+    VNR GDU 56A31 BDFLF
+    
+(where I made the part about the birth place up since the codes are only defined for italian cities.)
+Now, it's obvious that if have two differents fiscal codes, they belong to two different persons. Also, it's
+almost impossible that two persons have the same fiscal code.
+
+And that's exactly what a hash value is, a "digest" of the object that can be used to identify it and
+distinguish it from the others without the need to verify that each part of object X is equal (or not) to
+each part of object Y: you only compare the two hash values. This property allows us, as we saw in
+[Week 14](http://www.codecademy.com/groups/python-fro-beginners/discussions/513db1703a03bbfc0b0006f2),
+to implement very (very very very) fast search algorithms.
+
+But it comes with a price. In order to be meaningful, the hash value must be defined on properties that
+are not likely to change: I might dream about being born in the 60s in California, but that's not gonna
+happen, and therefore my fiscal code will always stay the same.
+
+Back to Python, hashable objects are supposed to be immutable: once created they stay the same for all
+their lifetime. While this is not enforced by Python for your custom object, it is true for the built-in ones.
+
+So, sets can only contain immutable object. But a set is not itself immutable: I can add and remove objects. So I'd
+expect that I won't be able to add a set inside another set:
+
+    >   fable = {"tortoise", "hare"}
+    >   paradox = {"Achilles", "tortoise"}
+    >   fable.add(paradox)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: unhashable type: 'set'
+
+But... what if I want to add all the elements from a set into another? Well, that's what the `union` was for
+
+    > fable = fable.union(paradox)
+    => set(['Achilles', 'hare', 'tortoise'])
+    
+and in fact, being so common, Python defines the `|` operator as a shortcut:
+
+    > fable = fable | paradox
+    => set(['Achilles', 'hare', 'tortoise'])
+
+and the compound operator `|=` can be used in a similar fashion to `+=` to get a shorter shortcut:
+
+    > fable |= paradox
+    => set(['Achilles', 'hare', 'tortoise'])
 
 P.S. Some technicalities. What I described refers to Python 2.7.x as well as Python 3.x.x
 
