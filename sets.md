@@ -91,8 +91,8 @@ happen, and therefore my fiscal code will always stay the same.
 Back to Python, hashable objects are supposed to be immutable: once created they stay the same for all
 their lifetime. While this is not enforced by Python for your custom object, it is true for the built-in ones.
 
-So, sets can only contain immutable object. But a set is not itself immutable: I can add and remove objects. So I'd
-expect that I won't be able to add a set inside another set:
+So, sets can only contain immutable objects. And since a set is not itself immutable (I can add and remove
+objects) I'd expect that I won't be able to add a set inside another set:
 
     >   fable = {"tortoise", "hare"}
     >   paradox = {"Achilles", "tortoise"}
@@ -100,8 +100,12 @@ expect that I won't be able to add a set inside another set:
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: unhashable type: 'set'
+    
+and this is a mojor difference with mathematical sets. (Don't despair! For the math nerds before you, Python
+provides the `frozenset` constructor to create immutable sets!)
 
-But... what if I want to add all the elements from a set into another? Well, that's what the `union` was for
+But... what if I actually wanted was to just add all the elements from one set into another? Well,
+that's what the `union` was for:
 
     > fable = fable.union(paradox)
     => set(['Achilles', 'hare', 'tortoise'])
