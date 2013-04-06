@@ -39,7 +39,8 @@ the [dictionary](http://www.codecademy.com/groups/python-fro-beginners/discussio
 these structures have in common is the fact that they store multiple values.
 
 What about unordered? One difference between lists and dictionaries is that lists are sequence of values with a
-defined order, while dictionaries don't. As you might have guessed, sets are also unordered collections:
+defined order, while dictionaries not, simple as that. As you might have guessed, sets are also lacking an
+order relationship between their elements:
 
     > standings = {"Achilles", "tortoise"}
     > print standings
