@@ -6,7 +6,20 @@ Today we're going to talk about `set`s, a data structure that I mistakenly cover
 being under the impression that it was the topic of one the lessons in the Python track.
 In fact it isn't, but it should since it's a nicely useful object.
 
-A set is just 
+A Python set is very close to the mathematical set: it can store many objects, but they must all be unique and they're
+not in any particular order or sequence. So,
+while you are used to store the same value multiple times in a list (es. fibonacci = [1,1,2,3,5]) this is
+not possible with sets: you can only have one copy. Let's try and define a set in the Python console:
+
+    > fibo = {1, 1, 2, 3, 5}
+    > print fibo
+    => set([1, 2, 3, 5])
+    
+The `{}` is the literal notation for sets. As you might remember from last week, it's also the notation for
+dictionaries, but Python is smart enough to distinguish between the two.
+
+We tried to store the first 5 elements in the fibonacci sequence, but we only got four: we only got one instance
+of the number `1`. But let's go by the manual.
 
 The [manual](http://docs.python.org/2/library/stdtypes.html#set) says that a **set** is an
 _unordered_ _collection_ of _distinct_ _hashable_ objects. Let's break this down.
