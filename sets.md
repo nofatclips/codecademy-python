@@ -16,7 +16,9 @@ not possible with sets: you can only have one copy. Let's try and define a set i
     => set([1, 2, 3, 5])
     
 The `{}` is the literal notation for sets. As you might remember from last week, it's also the notation for
-dictionaries, but Python is smart enough to distinguish between the two.
+dictionaries, but Python is smart enough to distinguish between the two. Or you can use the constructor method:
+
+    fibo = set(1, 1, 2, 3, 5)
 
 We tried to store the first 5 elements in the fibonacci sequence, but we only got four: we only got one instance
 of the number `1`. But let's go by the manual.
@@ -30,7 +32,11 @@ the [dictionary](http://www.codecademy.com/groups/python-fro-beginners/discussio
 these structures have in common is the fact that they store multiple values.
 
 One difference between lists and dictionaries is that lists have a defined order, while dictionaries don't. As
-you might have guessed, sets are also unordered
+you might have guessed, sets are also unordered collections:
+
+    > standings = {"Achilles", "turtle"}
+    > print standings
+    => set(['turtle', 'Achilles'])
 
 
 P.S. Some technicalities. What I described refers to Python 2.7.x as well as Python 3.x.x
