@@ -33,18 +33,26 @@ four: that's because Python only stored one instance of the number `1`. But let'
 The [manual](http://docs.python.org/2/library/stdtypes.html#set) says that a **set** is an
 _unordered_ _collection_ of _distinct_ _hashable_ objects. Let's break this down.
 
-What is a collection? We already saw other examples:
+What is a **collection**? We already saw other examples:
 the [list](http://www.codecademy.com/groups/python-fro-beginners/discussions/50bcc8cde3a02329b9000003) and
 the [dictionary](http://www.codecademy.com/groups/python-fro-beginners/discussions/5159a72318e52a0dd9001a6a). What
 these structures have in common is the fact that they store multiple values.
 
-What about unordered? One difference between lists and dictionaries is that lists are sequence of values with a
+What about **unordered**? One difference between lists and dictionaries is that lists are sequence of values with a
 defined order, while dictionaries not, simple as that. As you might have guessed, sets are also lacking an
 order relationship between their elements:
 
     > standings = {"Achilles", "tortoise"}
     > print standings
     => set(['tortoise', 'Achilles'])
+
+As a consequence, two lists with the same elements in a different order are considered different, while a set
+is only defined by the elements it contains, not by their order:
+
+    > {"a","b"} == {"b","a"}
+    => True
+    > ["a","b"] == ["b","a"]
+    => False
 
 We already saw what distinct means with the Fibonacci sequence. We'll get back to the hashable part soon. Let's first
 see what we can do with a set.
@@ -69,7 +77,7 @@ and iterate over them:
 Also, set operations (subset, superset, union, intersection and difference) are defined, but the `union` is the one that
 you'll use more often. More about it later.
 
-Now, what does hashable mean? Well, an object is hashable if Python knows how to evaluate a _hash value_ for it.
+Now, what does **hashable** mean? Well, an object is hashable if Python knows how to evaluate a _hash value_ for it.
 Let me take the panoramic route here...
 
 In Italy, the equivalent of the SSN is called "fiscal code": rather than
@@ -83,7 +91,7 @@ Rossum**, it would be:
 Now, it's obvious that if we have two differents fiscal codes, they belong to two different persons. Also, it's
 almost impossible that two persons have the same fiscal code.
 
-And that's exactly what a hash value is, a "digest" of the object that can be used to identify it and
+And that's exactly what a **hash value** is, a "digest" of the object that can be used to identify it and
 distinguish it from the others without the need to verify that each part of object X is equal (or not) to
 each part of object Y: you only compare the two hash values.
 
