@@ -146,6 +146,10 @@ When the element to add are in an iterable that is not a set, i.e. a list, we ca
      > menu
      => set(['lovely spam', 'spam egg sausage and spam', 'egg bacon and spam', 'spam'])
 
+Operators are also defined for other methods: `-` for the difference (a - b = all elements that are in a but not in b),
+`&` for the intersection (a & b = all elements that are both in a and b) and `^` for the symmetric difference (a ^ b =
+all elements that are either in a or in b but not in both).
+
 And that's [more than enough](http://www.youtube.com/watch?v=anwy2MPT5RE) about sets.
 Stay tuned for our weekly challenge.
 
