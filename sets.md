@@ -69,8 +69,8 @@ Let me take the panoramic route here...
 
 In Italy, the equivalent of the SSN is called "fiscal code": rather than
 being just a number, it is comprised of three letters from your first name (consonants first, then vowels), three
-from your last name, a sequence based on your birth date, a code corresponding to your birth place. For Guido von
-Rossum, it would be:
+from your last name, a sequence based on your birth date, a code corresponding to your birth place. For **Guido von
+Rossum**, it would be:
 
     VNR GDU 56A31 BDFLF
     
