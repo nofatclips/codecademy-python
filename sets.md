@@ -127,7 +127,7 @@ objects) I'd expect that I won't be able to add a set inside another set:
 and this is a mojor difference with mathematical sets. (Don't despair! For the math nerds amongst you, Python
 provides the `frozenset()` constructor to create immutable sets!)
 
-But... what if I actually wanted was to just add all the elements from one set into another? Well,
+But... what if what I actually wanted to do was just adding all the elements from one set into another? Well,
 that's what the `union` was for:
 
     > fable = fable.union(paradox)
