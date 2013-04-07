@@ -7,8 +7,9 @@ being under the impression that it was the topic of one the lessons in the Pytho
 In fact it isn't, but it should since it's a nicely useful object.
 
 A Python set is very close to the mathematical set: it can store many objects, but they must all be unique and they're
-not in any particular order or sequence. So,
-while you are used to store the same value multiple times in a list (es. fibonacci = [1,1,2,3,5]) this is
+not in any particular order or sequence. Let's start with uniqueness, and we'll tackle the ordering later.
+
+While you are used to store the same value multiple times in a list (es. fibonacci = [1,1,2,3,5]) this is
 not possible with sets: you can only have one copy. Let's try and define a set in the Python console:
 
     > fibo = {1, 1, 2, 3, 5}
@@ -38,21 +39,23 @@ the [list](http://www.codecademy.com/groups/python-fro-beginners/discussions/50b
 the [dictionary](http://www.codecademy.com/groups/python-fro-beginners/discussions/5159a72318e52a0dd9001a6a). What
 these structures have in common is the fact that they store multiple values.
 
-What about **unordered**? One difference between lists and dictionaries is that lists are sequence of values with a
-defined order, while dictionaries not, simple as that. As you might have guessed, sets are also lacking an
+What about **unordered**? One difference between lists and dictionaries was that lists are sequence of values with a
+defined order, while dictionaries not, simple as that. As the definition implies, sets are also lacking an
 order relationship between their elements:
 
     > standings = {"Achilles", "tortoise"}
     > print standings
     => set(['tortoise', 'Achilles'])
 
-As a consequence, two lists with the same elements in a different order are considered different, while a set
-is only defined by the elements it contains, not by their order:
+As a consequence, two lists with the same elements in a different order are considered different
+
+    > ["a","b"] == ["b","a"]
+    => False
+
+while a set is only defined by the elements it contains, not by their order:
 
     > {"a","b"} == {"b","a"}
     => True
-    > ["a","b"] == ["b","a"]
-    => False
 
 We already saw what distinct means with the Fibonacci sequence. We'll get back to the hashable part soon. Let's first
 see what we can do with a set.
