@@ -95,14 +95,15 @@ Rossum**, it would be:
 Now, it's obvious that if we have two different fiscal codes, they must belong to two different persons. Also, it's
 almost impossible that two persons have the same fiscal code.
 
-And that's exactly what a **hash value** is, a "digest" of the object that can be used to identify it and
-distinguish it from the others without the need to verify that each part of object X is equal (or not) to
-each part of object Y: you only compare the two hash values.
+And that's exactly what a **hash value** is: a "digest" of the object that can be used to identify it and
+distinguish it from the others. You don't need to verify that each part of object X is equal (or not) to
+each part of object Y: you just compare the two hash values.
 
     > "Guido von Rossum".__hash__()
     => 1036986244
 
-This property allows us, as we saw in
+With a good formula for hash values, the occurrence of two different objects having the same hash (called "collision")
+is very unlikely. This property allows us, as we saw in
 [Week 14](http://www.codecademy.com/groups/python-fro-beginners/discussions/513db1703a03bbfc0b0006f2),
 to implement very (very very very) fast search algorithms.
 
