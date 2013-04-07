@@ -77,8 +77,14 @@ and iterate over them:
 
     > for name in standings: print name
     
-Also, set operations (subset, superset, union, intersection and difference) are defined, but the `union` is the one that
-you'll use more often. More about it later.
+Also, you can use **set comprehensions** to define a set, using the same rules that apply to
+[list comprehensions](http://www.codecademy.com/groups/python-fro-beginners/discussions/50cf63f7bc3b636c4500001d)
+except for the use of the curly braces:
+
+    > squares = {x**2 for x in range(10)}
+
+Last but not least, set operations (subset, superset, union, intersection and difference) are defined. More about
+it later.
 
 Now, what does **hashable** mean? Well, an object is hashable if Python knows how to evaluate a _hash value_ for it.
 Not very helpful, I know. Let me take the panoramic route here...
@@ -155,6 +161,11 @@ Operators are also defined for other methods: `-` for the difference (a - b = al
 `&` for the intersection (a & b = all elements that are both in a and b) and `^` for the symmetric difference (a ^ b =
 all elements that are either in a or in b but not in both).
 
+    > print menu & set(menulist) # What they have in common
+    => set(['spam'])
+    > print menu - set(menulist) # What is different
+    => set(['spam egg sausage and spam', 'egg bacon and spam'])
+
 And that's [more than enough](http://www.youtube.com/watch?v=anwy2MPT5RE) about sets.
 Stay tuned for our weekly challenge.
 
@@ -163,9 +174,9 @@ P.S. Some technicalities. What I described refers to Python 2.7.x as well as Pyt
 The set was first introduced in Python 2.3 as a library (you had to `import sets`, plural, in order
 to be able to use it in your programs). In Python 2.6 `sets` was replaced by `set` , a built-in type, that is
 part of the Python language (while the old library has been deprecated). Only with Python 2.7 the `{}` notation
-has been introduced.
+and the comprehension were introduced.
 
-So, you won't be able to use the curly brackets literal in some online IDEs that are still stuck to older versions of
+So, you won't be able to use curly brackets literals in some online IDEs that are still stuck to older versions of
 Python, and you may even have to `import sets` if the version is Python 2.5 or earlier. To check which version of
 Python is running, use:
 
