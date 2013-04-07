@@ -81,7 +81,7 @@ Also, set operations (subset, superset, union, intersection and difference) are 
 you'll use more often. More about it later.
 
 Now, what does **hashable** mean? Well, an object is hashable if Python knows how to evaluate a _hash value_ for it.
-Let me take the panoramic route here...
+Not very helpful, I know. Let me take the panoramic route here...
 
 In Italy, the equivalent of the [Social Security Number](http://en.wikipedia.org/wiki/Social_Security_number)
 is called [fiscal code](http://en.wikipedia.org/wiki/Italian_fiscal_code_card): rather than
