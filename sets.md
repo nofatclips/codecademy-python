@@ -111,7 +111,7 @@ But it comes with a price. In order to be meaningful, the hash value must be def
 are not likely to change: I might dream about being born in the 60s in California, but that's not gonna
 happen, and therefore my fiscal code will always stay the same.
 
-Back to Python, hashable objects are supposed to be immutable: once created they stay the same for all
+Back to Python, hashable objects are supposed to be **immutable**: once created they stay the same for all
 their lifetime. While this is not enforced by Python for your custom object, it is true for the built-in ones.
 
 So, sets can only contain immutable objects. And since a set is not itself immutable (I can add and remove
