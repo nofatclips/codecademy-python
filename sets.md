@@ -80,7 +80,8 @@ you'll use more often. More about it later.
 Now, what does **hashable** mean? Well, an object is hashable if Python knows how to evaluate a _hash value_ for it.
 Let me take the panoramic route here...
 
-In Italy, the equivalent of the SSN is called "fiscal code": rather than
+In Italy, the equivalent of the [Social Security Number](http://en.wikipedia.org/wiki/Social_Security_number)
+is called [fiscal code](http://en.wikipedia.org/wiki/Italian_fiscal_code_card): rather than
 being just a number, it is comprised of three letters from your first name (consonants first, then vowels), three
 from your last name, a sequence based on your birth date, a code corresponding to your birth place. For **Guido von
 Rossum**, it would be:
