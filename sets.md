@@ -6,8 +6,8 @@ Today we're going to talk about `set`s, a data structure that I mistakenly cover
 being under the impression that it was the topic of one the lessons in the Python track.
 In fact it isn't, but it should since it's a nicely useful object.
 
-A Python set is very close to the mathematical set: it can store many objects, but they must all be unique and they're
-not in any particular order or sequence. Let's start with uniqueness, and we'll tackle the ordering later.
+A Python set is very close to the mathematical set: it can store many objects, but they must all be _unique_ and they're
+not in any particular _order_ or sequence. Let's start with **uniqueness**, and we'll tackle the ordering later.
 
 While you are used to store the same value multiple times in a list (es. fibonacci = [1,1,2,3,5]) this is
 not possible with sets: you can only have one copy. Let's try and define a set in the Python console:
