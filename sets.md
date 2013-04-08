@@ -169,6 +169,8 @@ all elements that are either in a or in b but not in both).
 And that's [more than enough](http://www.youtube.com/watch?v=anwy2MPT5RE) about sets.
 Stay tuned for our weekly challenge.
 
+-----------------
+
 P.S. Some technicalities. What I described refers to Python 2.7.x as well as Python 3.x.x
 
 The set was first introduced in Python 2.3 as a library (you had to `import sets`, plural, in order
