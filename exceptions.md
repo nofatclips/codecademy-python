@@ -36,7 +36,7 @@ We can have as many `except` block as type of errors we want to handle.
 
 But first, we need to know what these error types are. Let's run the original program and enter a string. We get:
 
-    ValueError: invalid literal for int() with base 10: 'ff'
+    ValueError: invalid literal for int() with base 10: 'YOLO!'
     
 while if we try to divide by zero, we get:
 
