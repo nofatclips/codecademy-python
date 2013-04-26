@@ -20,3 +20,13 @@ be done in advance: handling exceptions. Which begs the question: what is an exc
 You're used to your function `return`ing a value when everything ends well, right? Well, when things goes awry,
 functions stop executing and throw `Exception`s at you. When not handled, `Exception`s will make your program crash and
 exit with an error message: just try dividing by zero in the first program.
+
+In order to handle exceptions, first we wrap the part of our code that can raise problems in a `try` block:
+
+http://pythonfiddle.com/python-week-review-exceptions-passing
+
+The `try` block is followed by an `except` block, which is where we handle the errors. In our example, I just did
+nothing and `pass`ed: errors are muted. Notice that now, trying to divide by zero doesn't crash the program.
+This is not good as it seems: we're sweeping the problems under the rug. We don't even know if something went bad!
+
+
