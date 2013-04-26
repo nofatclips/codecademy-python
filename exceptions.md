@@ -25,8 +25,23 @@ In order to handle exceptions, first we wrap the part of our code that can raise
 
 http://pythonfiddle.com/python-week-review-exceptions-passing
 
-The `try` block is followed by an `except` block, which is where we handle the errors. In our example, I just did
+The `try` block is followed by an `except` block (in fact one or more `except` block. More about this later)
+which is where we handle the errors. In our example, I just did
 nothing and `pass`ed: errors are muted. Notice that now, trying to divide by zero doesn't crash the program.
 This is not good as it seems: we're sweeping the problems under the rug. We don't even know if something went bad!
 
+Let's print a friendly error message like we did in the Error Avoidance version. Problem: how do we tell between
+"user entered a string" and "divide by zero" errors? That's simple: `except` accept the error type as a parameter.
+We can have as many `except` block as type of errors we want to handle.
 
+But first, we need to know what these error types are. Let's run the original program and enter a string. We get:
+
+    ValueError: invalid literal for int() with base 10: 'ff'
+    
+while if we try to divide by zero, we get:
+
+    ZeroDivisionError: integer division or modulo by zero
+    
+and now we know we need to handle `ValueError` and `ZeroDivisionError`. The rest is straightforward:
+
+http://pythonfiddle.com/python-week-review-exceptions-handling/
