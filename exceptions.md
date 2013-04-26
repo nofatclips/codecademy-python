@@ -45,3 +45,14 @@ while if we try to divide by zero, we get:
 and now we know we need to handle `ValueError` and `ZeroDivisionError`. The rest is straightforward:
 
 http://pythonfiddle.com/python-week-review-exceptions-handling/
+
+Now you might be wondering: who's throwing these exceptions? Well there's nothing magic about that: in Python you
+use the `raise` command just to do that.
+
+Let's say that we don't want our function to handle exception: we'll do that in the main program. This is a good
+practice since when you create a function you don't always know how and when it will be used: therefore, it may
+or may not be the case that printing an error message on the screen is acceptable. It certainly isn't if we're
+dealing with a web application.
+
+Let's also say that we are OK with the `ZeroDivisionError` but we'd like the value error to be more descriptive
+of what is actually happening. We can create
