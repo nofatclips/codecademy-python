@@ -61,6 +61,20 @@ of what is actually happening. Well, since everything in Python is an object, is
 are object too. We can create an `Exception` with a custom message and use `raise` to send it back to the main
 program when the user enters a string.
 
-http://pythonfiddle.com/python-week-review-exceptions-raising
+http://pythonfiddle.com/python-week-review-exceptions-raise
 
-But there's a problem: the main program doesn't print the error message we sent. How do we access 
+But there's a problem: the main program doesn't print the error message we sent. It's clearly a property of
+the `ValueError` object we created, but how do we access it. In fact: how do we access the object? Well,
+the `except` keyword has an extended syntax that allows to store the exception in a variable like this:
+
+    except ValueError as the_error:
+        pass
+
+Then, we can inspect it as with any other object, or just print it to get the error message:
+
+http://pythonfiddle.com/python-week-review-exceptions-messaging
+
+If you need even more customization, you can extend the `Exception` class and create your own type of
+exception, but that's another story.
+
+See you next week.
