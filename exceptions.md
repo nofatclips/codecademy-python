@@ -62,3 +62,5 @@ are object too. We can create an `Exception` with a custom message and use `rais
 program when the user enters a string.
 
 http://pythonfiddle.com/python-week-review-exceptions-raising
+
+But there's a problem: the main program doesn't print the error message we sent. How do we access 
