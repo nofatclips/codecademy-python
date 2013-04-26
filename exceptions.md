@@ -75,6 +75,10 @@ Then, we can inspect it as with any other object, or just print it to get the er
 http://pythonfiddle.com/python-week-review-exceptions-messaging
 
 If you need even more customization, you can extend the `Exception` class and create your own type of
-exception, but that's another story.
+exception:
+
+http://pythonfiddle.com/python-week-review-exceptions-custom/
+
+but that's another story.
 
 See you next week.
