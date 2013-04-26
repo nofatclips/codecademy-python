@@ -15,4 +15,8 @@ using `if`s and library functions:
 http://pythonfiddle.com/python-week-review-exceptions-avoidance
 
 But let's see a different way to deal with exceptional circumstances, a way that will be useful when detection can't
-be done in advance: handling exceptions.
+be done in advance: handling exceptions. Which begs the question: what is an exception?
+
+You're used to your function `return`ing a value when everything ends well, right? Well, when things goes awry,
+functions stop executing and throw `Exception`s at you. When not handled, `Exception`s will make your program crash and
+exit with an error message: just try dividing by zero in the first program.
