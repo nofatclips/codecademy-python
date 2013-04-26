@@ -47,12 +47,18 @@ and now we know we need to handle `ValueError` and `ZeroDivisionError`. The rest
 http://pythonfiddle.com/python-week-review-exceptions-handling/
 
 Now you might be wondering: who's throwing these exceptions? Well there's nothing magic about that: in Python you
-use the `raise` command just to do that.
+use the `raise` command just to do that. More about that soon. First we need some refactoring!
 
 Let's say that we don't want our function to handle exception: we'll do that in the main program. This is a good
 practice since when you create a function you don't always know how and when it will be used: therefore, it may
 or may not be the case that printing an error message on the screen is acceptable. It certainly isn't if we're
-dealing with a web application.
+dealing with a web application. Let's refactor our code:
+
+http://pythonfiddle.com/python-week-review-exceptions-refactoring
 
 Let's also say that we are OK with the `ZeroDivisionError` but we'd like the value error to be more descriptive
-of what is actually happening. We can create
+of what is actually happening. Well, since everything in Python is an object, is no surprise that Exceptions
+are object too. We can create an `Exception` with a custom message and use `raise` to send it back to the main
+program when the user enters a string.
+
+http://pythonfiddle.com/python-week-review-exceptions-raising
