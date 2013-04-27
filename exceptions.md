@@ -1,6 +1,13 @@
 Week 21 Review: Exceptions
 ============
 
+A note before starting. Source code is provided as editable fiddles via external links. If you prefer to have all the
+code on the same page, I've also made a Gist:
+
+https://gist.github.com/nofatclips/5474366
+
+You can also use both... And now, we'ready to discuss how to deal with errors in Python.
+
 Errors happen all the time in writing software. Even when we are sure that our code is bug free, problems may occur
 due to user misbehavior, OS/Hardware failure or other unpredictable circumstances.
 
