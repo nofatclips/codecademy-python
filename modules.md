@@ -61,5 +61,6 @@ It's also the best choice when you're importing two attributes with the same nam
 References and Additional Links
 ----------------
 
-The code in this review: [Gist](https://gist.github.com/nofatclips/5653733) - [Fiddle](http://pythonfiddle.com/review-week-modules/)
-[Python Koans](https://github.com/gregmalcolm/python_koans)
+* The code in this review: [Gist](https://gist.github.com/nofatclips/5653733) - [Fiddle](http://pythonfiddle.com/review-week-modules/)
+* [Python Koans](https://github.com/gregmalcolm/python_koans)
+* [Modules](http://docs.python.org/2/tutorial/modules.html) in the *Python Tutorial*
