@@ -6,9 +6,17 @@ Today we're going to talk about modules. A [module](http://docs.python.org/2/tut
 
 The most prominent case of reuse is obviously the [Python Standard Library](http://docs.python.org/2/library/). Python comes with a set of standard modules that add a lot of useful features to those built into the language. You only need to import them into your own program and use them. How?
 
-Importing a Module
+Importing and Using a Module
 ------------------
 
+In Python, you do that with the `import` keyword, followed by the name of the module:
+
+    import someLibrary
+    
+From now on, `someLibrary` works as a namespace to access the functions offered the the module. That is: in order to call some function defined in `someLibrary`, you're going to use:
+    
+    someLibrary.someFunction()
+    
 
 
 References and Additional Links
