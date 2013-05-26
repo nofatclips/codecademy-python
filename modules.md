@@ -48,13 +48,13 @@ or even importing all the attributes at once using:
     radius = 4
     print 2 * pi * radius
     print factorial(10)
-    
-And now there's really no way to understand where `pi` and `factorial` come from by just reading the code.
 
 The Importance of Being Namespaced
 ----------------------------------
 
-As I said, the `from` keyword (and the wildcard version especially) should be reserved for standard libraries or when playing in the Python shell, since the namespacing makes the code clearer.
+Notice that in the last version of the code there's really no way to infer where `pi` and `factorial` come from by just reading the code. You just happen to know it or you don't (or you have good IDE...)
+
+Therefore, the `from` keyword (and the wildcard version especially) should be reserved for standard libraries or when playing in the Python shell, since the namespacing makes the code clearer.
 
 It's also the best choice when you're importing two attributes with the same name, as rare as this situation might be.
 
