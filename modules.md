@@ -64,3 +64,14 @@ References and Additional Links
 * The code in this review: [Gist](https://gist.github.com/nofatclips/5653733) - [Fiddle](http://pythonfiddle.com/review-week-modules/)
 * [Python Koans](https://github.com/gregmalcolm/python_koans)
 * [Modules](http://docs.python.org/2/tutorial/modules.html) in the *Python Tutorial*
+
+
+Problem of the Week
+===================
+
+A classic problem: given a list of objects (numbers and strings are OK, but feel free to pick your favourite type) create a dictionary with the objects in the list as keys and the number of their occurrences (how many time the same object is stored in the list) as the value. Example
+
+    input = [6, 45, 23, 6, 34, 2, 98, 45, 6]
+    output = {6: 3, 45: 2, 23: 1, 34: 1, 2: 1, 98: 1}
+    
+Now, you can implement your own logic or import the [Counter class](http://docs.python.org/2/library/collections.html#collections.Counter) and use it. Your choice.
