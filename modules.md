@@ -76,4 +76,4 @@ Given a list of objects (numbers and strings are OK, but feel free to pick your 
     input = [6, 45, 23, 6, 34, 2, 98, 45, 6]
     output = {6: 3, 45: 2, 23: 1, 34: 1, 2: 1, 98: 1}
     
-Now, you can implement your own logic or import the [Counter class](http://docs.python.org/2/library/collections.html#collections.Counter) and use it. Your choice.
+Now, you can implement your own logic or `import` the [`Counter`] (http://docs.python.org/2/library/collections.html#collections.Counter) class `from` the collection `module` and use it. Your choice.
