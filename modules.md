@@ -69,7 +69,9 @@ References and Additional Links
 Problem of the Week
 ===================
 
-A classic problem: given a list of objects (numbers and strings are OK, but feel free to pick your favourite type) create a dictionary with the objects in the list as keys and the number of their occurrences (how many time the same object is stored in the list) as the value. Example
+A classic problem: frequency count.
+
+Given a list of objects (numbers and strings are OK, but feel free to pick your favourite type as long as "A equals B" is defined) create a dictionary with the objects in the list as keys and the number of their occurrences (how many times the same object is stored in the list) as the value. Example
 
     input = [6, 45, 23, 6, 34, 2, 98, 45, 6]
     output = {6: 3, 45: 2, 23: 1, 34: 1, 2: 1, 98: 1}
