@@ -46,7 +46,7 @@ Now, let's say that I have two lists of strings, names and verbs, and I want to 
     shuffle(nouns)
     
     for index in range(len(verbs)): # <- not zen!
-        print str(num+1)+".", verbs[index], nouns[index]
+        print str(index+1)+".", verbs[index], nouns[index]
         
 I would be wrong: always bet on Python when you need to write better and/or less code! It's indeed true that I can't loop over two or more iterables at the same time. But I can loop over a list of tuples. All I need is a way to build a list of tuples like:
 
