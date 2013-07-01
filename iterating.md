@@ -106,9 +106,11 @@ These all seem overkill for such a simple example, but for longer loops, it'll m
 Problem of the Week #29
 =======================
 
-Very simple problem, just to review the iteration functions. You're given two list of integers which will either be `0`s or `1`s. Return the [bitwise and](http://www.codecademy.com/groups/python-fro-beginners/discussions/51758477d7b0ee33580048ce) (follow the link for a refresh) of the binary numbers represented by the arrays.
+Very simple problem, just to review the [iteration functions](http://www.codecademy.com/groups/python-fro-beginners/discussions/51d1a5da631fe976f0000adb).
 
-Here's a template code with testing:
+You're given two lists of integers which will either be `0`s or `1`s. Return the [bitwise and](http://www.codecademy.com/groups/python-fro-beginners/discussions/51758477d7b0ee33580048ce) (follow the link for a refresh) of the binary numbers represented by the arrays.
+
+Here's a template code with some test cases that should make clearer what I'm asking you to do:
 
     def bitwise_and(x_array, y_array):
         pass # Your code here
