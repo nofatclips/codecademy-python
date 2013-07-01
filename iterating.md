@@ -19,7 +19,7 @@ The Python way is to use [`sorted()`](http://docs.python.org/2/library/functions
         # Sets don't have a sort method!!!
         print sorted(a)
     for stuff in sorted(a, reverse=True):
-    print stuff
+        print stuff
 
 Reversing
 ---------
