@@ -81,7 +81,7 @@ As you can see, enumerate returns a tuple like zip: the second element will stor
 
 Now, how do we get a zip/enumerate combo? That's tricky. Since `zip(verbs, nouns)` would return a tuple, like `("Marry", "Guido")`, then calling `enumerate(zip(verbs, nouns))` will return a tuple inside a tuple, like:
      
-    `(3, ("Marry", "Guido"))`
+    (3, ("Marry", "Guido"))
     
 and therefore, it would not match `index, verb, noun`: Python will complain that there are three variables, but only two values: a number and a tuple. You need to write the for loop like this:
 
