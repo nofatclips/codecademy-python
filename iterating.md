@@ -8,7 +8,7 @@ Sorting
 
 Let's start with a simple one: what if my list is not sorted but I want to print it in alphabetical order? I could certainly call the `.sort()` method on my list and then print it, but that method works in place. This means that my list will actually get sorted, and perhaps I don't want  it. In fact, perhaps I don't even want to store a new list which I'm not going to need anymore as soon as I `print`ed it.
 
-And moreover: what if I don't have a list at all? What if I have a set?
+And moreover: what if I don't have a list at all? What if I have a [set](http://www.codecademy.com/groups/python-fro-beginners/discussions/5162b5c657ca7497640043b1)?
 The Python way is to use [`sorted()`](http://docs.python.org/2/library/functions.html#sorted). It works with any iterable object, not just lists.
 
     a = {"a", "b", 1} # A set, not a list!
