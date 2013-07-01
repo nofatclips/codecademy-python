@@ -82,7 +82,7 @@ But that doesn't mean that you're back at iterating with `range`! What you need 
     for index, verb in enumerate(verbs, start=1):
         print str(index)+".", verb
         
-As you can see, enumerate return a tuple like zip: the second element will store the currently iterated element while the first one is the index of that element, or better: a counter. As you can see, with the named parameter `start` we were able to start counting at `1` even though all elements in list have been printed. (That is, enumerate didn't start at index 1: it just started counting at 1.)
+As you can see, enumerate returns a tuple like zip: the second element will store the currently iterated element while the first one is the index of that element, or better: a counter. As you can see, with the named parameter `start` we were able to start counting at `1` even though all elements in list have been printed. (That is, enumerate didn't start at index 1: it just started counting at 1.)
 
 Now, how do we get a zip/enumerate combo? That's tricky.
 Since `zip(verbs, nouns)` would return a tuple, like `("Marry", "Guido")`, then calling `enumerate(zip(verbs, nouns))` will return a tuple inside a tuple, like:
