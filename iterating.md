@@ -24,7 +24,7 @@ The Python way is to use [`sorted()`](http://docs.python.org/2/library/functions
 Reversing
 ---------
 
-See what I did there? By specifying the named parameter `reverse` you can also get reverse order. But what if my list (let's get back to lists) is already ordered. It would be a waste to call `sorted` just to reverse it, right?
+See what I did there? By specifying the [named parameter](http://www.codecademy.com/groups/python-fro-beginners/discussions/5150818eade0674d310044e6) `reverse` you can also get reverse order. But what if my list (let's get back to lists) is already ordered. It would be a waste to call `sorted` just to reverse it, right?
 
 Enter, [`reversed`](http://docs.python.org/2/library/functions.html#reversed):
 
