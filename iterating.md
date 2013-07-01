@@ -37,7 +37,7 @@ Once again, after I used it the new reversed list is gone, unless I store it in 
 Zipping
 -------
 
-Now, let's say that I have two lists of strings, names and verbs, and I want to print them in random couples just for fun. Since the for loop only allows me to iterate over one iterable object, I would write something like:
+Now, let's say that I have two lists of strings, names and verbs, and I want to print them in random couples just for fun. Since the for loop only allows me to iterate over one iterable object, I would think that the only way is to write something like:
 
     from random import shuffle
     
