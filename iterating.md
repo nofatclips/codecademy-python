@@ -115,3 +115,22 @@ Problem of the Week #29
 =======================
 
 Very simple problem, just to review the iteration functions.
+You're given two list of integers which will either be `0`s or `1`s.
+Return the [bitwise and](http://www.codecademy.com/groups/python-fro-beginners/discussions/51758477d7b0ee33580048ce) (follow the link for a refresh) of the binary numbers represented by the arrays.
+Here's a template code with testing:
+
+    def bitwise_and(x_array, y_array):
+        pass # Your code here
+    
+    def test(whether, combined_with, equals):
+        assert(bitwise_and(whether, combined_with) == equals)
+    
+    test (whether=[0], combined_with=[0], equals=[0])
+    test (whether=[0], combined_with=[1], equals=[0])
+    test (whether=[1], combined_with=[0], equals=[0])
+    test (whether=[1], combined_with=[1], equals=[1])
+    test (whether=[1,1,0], combined_with=[0,1,1], equals=[0,1,0])
+    test (whether=[1,0,1], combined_with=[1], equals=[1])
+    test (whether=[1], combined_with=[1,0,1], equals=[1])
+    
+When you're done, consider the technique you used to iterate the two lists and try to answer this question: would that work the same to implement the bitwise or? Why?
