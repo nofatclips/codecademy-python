@@ -48,7 +48,7 @@ Since the for loop only allows me to iterate over one iterable object, I would w
     shuffle(nouns)
     
     for index in range(len(verbs)): # <- not zen!
-        print verbs[index], nouns[index]
+        print str(num+1)+".", verbs[index], nouns[index]
         
 I would be wrong: always bet on Python when you need to write better and/or less code!
 It's indeed true that I can't loop over two or more iterables at the same time. But I can loop over a list of tuples.
@@ -67,3 +67,17 @@ which is exactly what the [`zip()`](http://docs.python.org/2/library/functions.h
     
     for verb, noun in zip(verbs, nouns):
         print verb, noun
+
+Enumerating
+-----------
+
+Yes but... My "non zen" code printed a nice ordered list. How do I get that with zip? Well, you don't.
+But that doesn't mean that you're back at iterating with `range`! What you need is [`enumerate`](http://docs.python.org/2/library/functions.html#enumerate):
+
+    # Let's start with verbs only
+    verbs = ["kill", "kiss", "marry"]
+    
+    for index, verb in enumerate(verbs, start=1):
+        print str(index)+".", verb
+        
+As you can see, enumerate return a tuple like zip, but the first value is the index of the current element, or better: a counter. As you can see, with the named parameter `start` we were able to start counting at `1` even though all elements in list have been printed. (That is, enumerate didn't start at index 1: it just started counting at 1.)
