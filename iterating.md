@@ -80,4 +80,30 @@ But that doesn't mean that you're back at iterating with `range`! What you need 
     for index, verb in enumerate(verbs, start=1):
         print str(index)+".", verb
         
-As you can see, enumerate return a tuple like zip, but the first value is the index of the current element, or better: a counter. As you can see, with the named parameter `start` we were able to start counting at `1` even though all elements in list have been printed. (That is, enumerate didn't start at index 1: it just started counting at 1.)
+As you can see, enumerate return a tuple like zip: the second element will store the currently iterated element while the first one is the index of that element, or better: a counter. As you can see, with the named parameter `start` we were able to start counting at `1` even though all elements in list have been printed. (That is, enumerate didn't start at index 1: it just started counting at 1.)
+
+Now, how do we get a zip/enumerate combo? That's tricky.
+Since `zip(verbs, nouns)` would return a tuple, like `("Marry", "Guido")`, then calling `enumerate(zip(verbs, nouns))` will return a tuple inside a tuple, like:
+     
+    `(3, ("Marry", "Guido"))`
+    
+and therefore, it would not match `index, verb, noun`: Python will complain that there are three variables, but only two values: a number and a tuple.
+You need to write the for loop like this:
+
+    from random import shuffle
+    
+    verbs = ["kill", "kiss", "marry"]
+    nouns = ["Joe", "Jane", "Guido"]
+    shuffle(nouns)
+    
+    for index, (verb, noun) in enumerate(zip(verbs, nouns), start=1): # <- See?
+        print str(index)+".", verb, noun
+        
+Notice the parentheses around `verb` and `noun`: Python will take the inner tuple `("Marry", "Guido")` and unpack it, storing the first value in the first variable and the second in the second variable.
+(I'm not aware of any simple built-in function that would allow you to spare the parentheses, but there might well be one. We're talking Python after all...)
+
+Wrapping Up
+-----------
+
+These all seem overkill for such a simple example, but for longer loops, it'll make your code much cleaner.
+If your needs are more exotic than these functions can handle, then take a look at the [itertools](http://docs.python.org/2/library/itertools.html) module.
