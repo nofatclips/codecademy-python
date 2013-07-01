@@ -32,7 +32,7 @@ Enter, [`reversed`](http://docs.python.org/2/library/functions.html#reversed):
     for s in reversed(a_to_z):
         print s
 
-Once again, after I printed the list in reversed order, the new reversed list is gone, unless I store it in a variable.
+Once again, after I used it the new reversed list is gone, unless I store it in a variable.
 
 Zipping
 -------
