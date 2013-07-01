@@ -47,10 +47,10 @@ Since the for loop only allows me to iterate over one iterable object, I would w
     nouns = ["Joe", "Jane", "Guido"]
     shuffle(nouns)
     
-    for num in range(len(verbs)):
-        print verbs[num], nouns[num]
+    for index in range(len(verbs)): # <- not zen!
+        print verbs[index], nouns[index]
         
-I would be wrong: always bet on Python when you need to write less code!
+I would be wrong: always bet on Python when you need to write better and/or less code!
 It's indeed true that I can't loop over two or more iterables at the same time. But I can loop over a list of tuples.
 All I need is a way to build a list of tuples like:
 
@@ -58,3 +58,12 @@ All I need is a way to build a list of tuples like:
     [("kill", "Joe"), ("kiss", "Jane"), ("marry", "Guido")]
     
 which is exactly what the [`zip()`](http://docs.python.org/2/library/functions.html#zip) function does!
+
+    from random import shuffle
+    
+    verbs = ["kill", "kiss", "marry"]
+    nouns = ["Joe", "Jane", "Guido"]
+    shuffle(nouns)
+    
+    for verb, noun in zip(verbs, nouns):
+        print verb, noun
