@@ -67,6 +67,8 @@ which is exactly what the [`zip()`](http://docs.python.org/2/library/functions.h
     
     for verb, noun in zip(verbs, nouns):
         print verb, noun
+        
+Notice that zip will work with more than two lists, and even if the lists are not of the same size. In the latter case, the iteration will stop when the smaller list reaches its end.
 
 Enumerating
 -----------
@@ -107,3 +109,9 @@ Wrapping Up
 
 These all seem overkill for such a simple example, but for longer loops, it'll make your code much cleaner.
 If your needs are more exotic than these functions can handle, then take a look at the [itertools](http://docs.python.org/2/library/itertools.html) module.
+
+
+Problem of the Week #29
+=======================
+
+Very simple problem, just to review the iteration functions.
