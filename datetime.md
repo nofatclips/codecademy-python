@@ -1,4 +1,4 @@
-The datetime Module Part 2
+The datetime Module Part 3
 ==========================
 
 The datetime class
