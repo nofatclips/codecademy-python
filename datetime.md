@@ -14,17 +14,18 @@ Fear not, since the [datetime module](http://docs.python.org/2/library/datetime.
 
 To create a `datetime` object you have several options. You can use the contructor:
 
-    datetime(year, month, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]])
+    my_birthdate = datetime(year, month, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]])
 
 It takes many arguments, but only `year`, `month` and `day` are mandatory. Since `datetime` is a `date` composed with a `time` object, the meaning is exactly the same you saw the past weeks.
 
 You can also build an object from a [UNIX timestamp](http://en.wikipedia.org/wiki/Unix_time) (number of seconds since 1/1/1970) using:
 
-    datetime.fromtimestamp(timestamp[, tz])
-    
+    my_birthdate = datetime.fromtimestamp(timestamp[, tz])
+
+As usual, the timezone is optional.
 You can use an "ordinal", that is the number of days since day one of year one:
 
-    datetime.fromordinal(ordinal)
+    my_birthdate = datetime.fromordinal(ordinal)
 
 For example, today is:
 
@@ -36,7 +37,12 @@ As you might have guessed, `datetime.now()` creates an object representing the d
 
 If you have a formatted string representing date and time, you can create an object using:
 
-    datetime.strptime(date_string, format_string)
+    my_birthdate = datetime.strptime(date_string, format_string)
     
 where you have to pass both the date and time string, and the format string, which is the same you would pass to the `strftime` you saw in the [date review](http://www.codecademy.com/groups/python-fro-beginners/discussions/51dae0ab7c82ca812204d793).
 
+Last but not least, if you already have a `date` and a `time` object and just want to stick them together, then use the `combine` method:
+
+    my_birthdate = datetime.combine(date, time)
+    
+This variety of factory and constructor methods allows you a great degree of freedom and flexibility in the development of your application. You can represent dates and times using whatever convention suits you best: Python has a method for that!
