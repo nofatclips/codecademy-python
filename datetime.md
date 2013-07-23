@@ -6,8 +6,37 @@ The datetime class
 
 You might have noticed that the [date](http://www.codecademy.com/groups/python-fro-beginners/discussions/51dae0ab7c82ca812204d793) class doesn't have properties for hours, minutes and seconds. And the [time](http://www.codecademy.com/groups/python-fro-beginners/discussions/51e44a87631fe9442d006521) class doesn't have properties for year, month and day.
 
-This is great: concerns are nicely separate, each class does exactly what it needs to do, I don't need to create objects that do more things than I actually need and so on. But what if I need manage a complete timestamp, years to milliseconds?
+This is great: concerns are nicely separate, each class does exactly what it needs to do, I don't need to create objects that do more things than I actually need and so on. But what if I need to represent, say, the time and date of an event, years to milliseconds?
 
-If I want to represent the exact moment of my birth, I need to store both the date and the time. Do I need to use two separate objects? If I want to know how many seconds passed from my birth up until now, do I need four objects? Do I need to write all the code to do that?
+If I want to represent the exact moment of my birth, I need to store both the date and the time. Do I need to use two separate objects for this? If I want to know how many seconds passed from my birth up until now, do I need four objects? Do I need to write all the code to do that?
 
-Fear not, since the [datetime module](http://docs.python.org/2/library/datetime.html) has a [datetime class](http://docs.python.org/2/library/datetime.html#datetime-objects)
+Fear not, since the [datetime module](http://docs.python.org/2/library/datetime.html) has a [datetime class](http://docs.python.org/2/library/datetime.html#datetime-objects) to do this and more.
+
+To create a `datetime` object you have several options. You can use the contructor:
+
+    datetime(year, month, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]])
+
+It takes many arguments, but only `year`, `month` and `day` are mandatory. Since `datetime` is a `date` composed with a `time` object, the meaning is exactly the same you saw the past weeks.
+
+You can also build an object from a [UNIX timestamp](http://en.wikipedia.org/wiki/Unix_time) (number of seconds since 1/1/1970) using:
+
+    datetime.fromtimestamp(timestamp[, tz])
+    
+You can use an "ordinal", that is the number of days since day one of year one:
+
+    datetime.fromordinal(ordinal)
+
+For example, today is:
+
+    >>> import datetime
+    >>> datetime.datetime.now().toordinal()
+    735072
+    
+As you might have guessed, `datetime.now()` creates an object representing the date and time of the exact moment when the method gets called, and `toordinal()` converts it to ordinal. Note that this way you are actually only representing the date, not the time.
+
+If you have a formatted string representing date and time, you can create an object using:
+
+    datetime.strptime(date_string, format_string)
+    
+where you have to pass both the date and time string, and the format string, which is the same you would pass to the `strftime` you saw in the [date review](http://www.codecademy.com/groups/python-fro-beginners/discussions/51dae0ab7c82ca812204d793).
+
