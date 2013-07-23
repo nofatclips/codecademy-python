@@ -48,3 +48,13 @@ Last but not least, if you already have a `date` and a `time` object and just wa
 This variety of factory and constructor methods allows you a great degree of freedom and flexibility in the development of your application. You can represent dates and times using whatever convention suits you best: Python has a method for that!
 
 Next time we'll see what we can do with these objects, but since I'd hate to leave you with a dry mouth, I'll guide you through a simple example in the problem of the week.
+
+Problem of the Week #32
+=======================
+
+So, let's say you actually want to know how many seconds passed from your birth up until now.
+The [docs page](http://docs.python.org/2/library/datetime.html#datetime-objects) has everything you need to do it, but it involves methods and classes that haven't been covered yet in our reviews. So, I've prepared a [Gist](https://gist.github.com/nofatclips/6061651) to assist you in the task.
+
+https://gist.github.com/nofatclips/6061651
+
+Good luck
