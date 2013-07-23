@@ -46,3 +46,5 @@ Last but not least, if you already have a `date` and a `time` object and just wa
     my_birthdate = datetime.combine(date, time)
     
 This variety of factory and constructor methods allows you a great degree of freedom and flexibility in the development of your application. You can represent dates and times using whatever convention suits you best: Python has a method for that!
+
+Next time we'll see what we can do with these objects, but since I'd hate to leave you with a dry mouth, I'll guide you through a simple example in the problem of the week.
